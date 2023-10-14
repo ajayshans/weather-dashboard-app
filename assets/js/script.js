@@ -20,7 +20,6 @@ var chosenCountryEl = document.getElementById('chosen-country');
 var assignCity = event => {
     event.preventDefault();
     var chosenCity = cityInputEl.value
-    console.log(chosenCity);
 
     // Alert user if user input is "falsy" (i.e. null, undefined, false, 0, etc)
     if (!chosenCity) {
@@ -42,8 +41,14 @@ var obtainLonLatValues = chosenCity => {
         if (response.ok) {
             response.json()
             .then(data => {
-                console.log(data);
+                console.log(data[0]);
+                var chosenCityLon = data[0].lon;
+                var chosenCityLat = data[0].lat;
+                var chosenCityCountry = data[0].country;
             })
+        }
+        else {
+            alert('Error ' + response.status + ': ' + response.statusText);
         }
     })
 }
