@@ -41,10 +41,10 @@ var obtainLonLatValues = chosenCity => {
         if (response.ok) {
             response.json()
             .then(data => {
-                console.log(data[0]);
                 var chosenCityLon = data[0].lon;
                 var chosenCityLat = data[0].lat;
                 var chosenCityCountry = data[0].country;
+                obtainTodayData(chosenCityLon, chosenCityLat);
             })
         }
         else {
@@ -55,6 +55,23 @@ var obtainLonLatValues = chosenCity => {
 
 
 /* ---------------------- Today's Weather Handling ---------------------- */
+
+// Obtain today's weather data for chosenCity
+var obtainTodayData = (longitude, latitude) => {
+    var apiDataUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&exclude=minutely,hourly,daily,alerts&units=metric' + '&appid=' + apiKey;
+    fetch(apiDataUrl)
+    .then(response => {
+        if (response.ok) {
+            response.json()
+            .then(data => {
+                console.log(data);
+            })
+        }
+        else {
+            alert('Error ' + response.status + ': ' + response.statusText);
+        }
+    })
+}
 
 
 /* ---------------------- Weather Forecast Handling ---------------------- */
