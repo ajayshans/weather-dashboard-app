@@ -33,8 +33,10 @@
     <main>
       <div class = "container-fluid">
         <div class = "row">
+
           <!-- Search Section -->
           <div id = "search" class = "col-2">
+
             <!-- Search Box -->
             <form id = "search-box" class = "form-group">
               <div class="form-group">
@@ -44,6 +46,7 @@
               </div>
             </form>
             <hr>
+
             <!-- Search History -->
             <h3>Search History:</h3>
             <ul id = "search-history"></ul>
@@ -52,12 +55,14 @@
 
           <!-- Weather Output -->
           <div id = "weather-output" class = "col-9">
+
             <!-- Chosen city name and country -->
             <div class = "row mb-2 border-bottom">
               <h1><span id = "chosen-city"></span> - <span id = "chosen-country"></span></h1>
             </div>
+
             <!-- Today's weather -->
-            <h3 class = "row">Today's Weather:</h3>
+            <h3 class = "row mt-5">Today's Weather:</h3>
             <div id = "today-weather" class = "row card">
               <div class = "card-header">
                 <h4 id = "today-date"></h4><img id = "today-icon" alt="relevant weather icon">
@@ -69,9 +74,65 @@
               </div>
             </div>
 
+            <!-- Weather forecast -->
+            <h3 class = "row mt-5">5-Day Forecast:</h3>
+            <div id = "forecast" class = "row">
+              <div class = "card col">
+                <div class = "card-header">
+                  <h4 id = "forecast-date"></h4><img id = "forecast-icon" alt="relevant forecast weather icon">
+                </div>
+                <div class = "card-body">
+                  <p>Temp: <span id = "today-temp"></span>°C</p>
+                  <p>Wind: <span id = "today-wind"></span>km/h</p>
+                  <p>Humidity: <span id = "today-humidity"></span>%</p>
+                </div>   
+              </div>
+
+              <div class = "card col">
+                <div class = "card-header">
+                  <h4 id = "forecast-date"></h4><img id = "forecast-icon" alt="relevant forecast weather icon">
+                </div>
+                <div class = "card-body">
+                  <p>Temp: <span id = "today-temp"></span>°C</p>
+                  <p>Wind: <span id = "today-wind"></span>km/h</p>
+                  <p>Humidity: <span id = "today-humidity"></span>%</p>
+                </div>   
+              </div>
+
+              <div class = "card col">
+                <div class = "card-header">
+                  <h4 id = "forecast-date"></h4><img id = "forecast-icon" alt="relevant forecast weather icon">
+                </div>
+                <div class = "card-body">
+                  <p>Temp: <span id = "today-temp"></span>°C</p>
+                  <p>Wind: <span id = "today-wind"></span>km/h</p>
+                  <p>Humidity: <span id = "today-humidity"></span>%</p>
+                </div>   
+              </div>
+
+              <div class = "card col">
+                <div class = "card-header">
+                  <h4 id = "forecast-date"></h4><img id = "forecast-icon" alt="relevant forecast weather icon">
+                </div>
+                <div class = "card-body">
+                  <p>Temp: <span id = "today-temp"></span>°C</p>
+                  <p>Wind: <span id = "today-wind"></span>km/h</p>
+                  <p>Humidity: <span id = "today-humidity"></span>%</p>
+                </div>   
+              </div>
+
+              <div class = "card col">
+                <div class = "card-header">
+                  <h4 id = "forecast-date"></h4><img id = "forecast-icon" alt="relevant forecast weather icon">
+                </div>
+                <div class = "card-body">
+                  <p>Temp: <span id = "today-temp"></span>°C</p>
+                  <p>Wind: <span id = "today-wind"></span>km/h</p>
+                  <p>Humidity: <span id = "today-humidity"></span>%</p>
+                </div>   
+              </div>
+            </div>
           </div>
-
-
         </div>
       </div>
 
