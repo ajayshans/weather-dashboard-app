@@ -25,8 +25,8 @@
 
 <body>
     <!-- Page Header -->
-    <header class="jumbotron">
-      <h1 class="display-3 text-center">Weather Dashboard</h1>
+    <header class="jumbotron mb-4 pb-2 pt-2">
+      <h1 class="display-3 text-center fw-bolder">Weather Dashboard</h1>
     </header>
 
     <!-- Main Page -->
@@ -40,17 +40,17 @@
             <!-- Search Box -->
             <form id = "search-box" class = "form-group">
               <div class="form-group">
-                <label for="city-input">Search for a City:</label>
+                <label for="city-input" class = "fw-bold">Search for a City:</label>
                 <input type="text" class="form-control" id="city-input" placeholder="(Sydney, London, etc)">
-                <button type="submit" class="btn btn-primary btn-block mt-2" id = "search-button">Search</button>
+                <button type="submit" class="btn btn-primary btn-block mt-2 d-block" id = "search-button">Search</button>
               </div>
             </form>
             <hr>
 
             <!-- Search History -->
-            <h3>Search History:</h3>
+            <h3 class = "fw-bold">Search History:</h3>
             <ul id = "search-history"></ul>
-            <button id = "clear-button" class = "btn btn-primary btn-sm btn-block" >Clear History</button>
+            <button id = "clear-button" class = "btn btn-primary btn-sm btn-block d-block" >Clear History</button>
           </div>
 
           <!-- Weather Output -->
@@ -58,76 +58,76 @@
 
             <!-- Chosen city name and country -->
             <div class = "row border-top">
-              <h1 class = "mt-2"><span id = "chosen-city"></span> - <span id = "chosen-country"></span></h1>
+              <h1 class = "mt-2 text-left fs-1 fw-bold pt-1"><span id = "chosen-city"></span> - <span id = "chosen-country"></span></h1>
             </div>
 
             <!-- Today's weather -->
-            <h3 class = "row mt-3">Today's Weather:</h3>
+            <h3 class = "row mt-3 fs-5 fw-bold">Today's Weather:</h3>
             <div id = "today-weather" class = "row card">
               <div class = "card-header">
-                <h4 id = "today-date"></h4><img id = "today-icon" alt="relevant weather icon">
+                <h4 id = "today-date" class = "fs-7 fw-bold"></h4><img id = "today-icon" alt="relevant weather icon">
               </div>
               <div class = "card-body">
                 <p>Temp: <span id = "today-temp"></span>°C</p>
-                <p>Wind: <span id = "today-wind"></span>km/h</p>
+                <p>Wind: <span id = "today-wind"></span> m/s</p>
                 <p>Humidity: <span id = "today-humidity"></span>%</p>
               </div>
             </div>
 
             <!-- Weather forecast -->
-            <h3 class = "row mt-5">5-Day Forecast:</h3>
+            <h3 class = "row mt-5 fs-5 fw-bolder">5-Day Forecast:</h3>
             <div id = "forecast" class = "row">
               <div class = "card col">
                 <div class = "card-header">
-                  <h4 class = "forecast-date"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
+                  <h4 class = "forecast-date fs-7 fw-bold"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
                 </div>
                 <div class = "card-body">
                   <p>Temp: <span class = "forecast-temp"></span>°C</p>
-                  <p>Wind: <span class = "forecast-wind"></span>m/s</p>
+                  <p>Wind: <span class = "forecast-wind"></span> m/s</p>
                   <p>Humidity: <span class = "forecast-humidity"></span>%</p>
                 </div>   
               </div>
 
               <div class = "card col">
                 <div class = "card-header">
-                  <h4 class = "forecast-date"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
+                  <h4 class = "forecast-date fs-7 fw-bold"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
                 </div>
                 <div class = "card-body">
                   <p>Temp: <span class = "forecast-temp"></span>°C</p>
-                  <p>Wind: <span class = "forecast-wind"></span>m/s</p>
+                  <p>Wind: <span class = "forecast-wind"></span> m/s</p>
                   <p>Humidity: <span class = "forecast-humidity"></span>%</p>
                 </div>   
               </div>
 
               <div class = "card col">
                 <div class = "card-header">
-                  <h4 class = "forecast-date"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
+                  <h4 class = "forecast-date fs-7 fw-bold"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
                 </div>
                 <div class = "card-body">
                   <p>Temp: <span class = "forecast-temp"></span>°C</p>
-                  <p>Wind: <span class = "forecast-wind"></span>m/s</p>
+                  <p>Wind: <span class = "forecast-wind"></span> m/s</p>
                   <p>Humidity: <span class = "forecast-humidity"></span>%</p>
                 </div>   
               </div>
 
               <div class = "card col">
                 <div class = "card-header">
-                  <h4 class = "forecast-date"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
+                  <h4 class = "forecast-date fs-7 fw-bold"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
                 </div>
                 <div class = "card-body">
                   <p>Temp: <span class = "forecast-temp"></span>°C</p>
-                  <p>Wind: <span class = "forecast-wind"></span>m/s</p>
+                  <p>Wind: <span class = "forecast-wind"></span> m/s</p>
                   <p>Humidity: <span class = "forecast-humidity"></span>%</p>
                 </div>   
               </div>
 
               <div class = "card col">
                 <div class = "card-header">
-                  <h4 class = "forecast-date"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
+                  <h4 class = "forecast-date fs-7 fw-bold"></h4><img class = "forecast-icon" alt="relevant forecast weather icon">
                 </div>
                 <div class = "card-body">
                   <p>Temp: <span class = "forecast-temp"></span>°C</p>
-                  <p>Wind: <span class = "forecast-wind"></span>m/s</p>
+                  <p>Wind: <span class = "forecast-wind"></span> m/s</p>
                   <p>Humidity: <span class = "forecast-humidity"></span>%</p>
                 </div>   
               </div>
@@ -151,8 +151,3 @@
 </body>
 
 </html>
-
-<!-- TODO:
-1. Use Bootstrap for styling
-2. Add layout consisting of Header, Search, Search bar, Search History, Weather Display, Today's Weather, Weather Forecast`
--->

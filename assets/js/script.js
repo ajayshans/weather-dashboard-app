@@ -153,7 +153,7 @@ var storeCity = chosenCity => {
         for (var i = 0; i < uniqueStoredCities.length; i++) {
             var city = uniqueStoredCities[i];
             var li = document.createElement("li");
-            li.classList = 'btn btn-secondary btn-dark btn-sm btn-block d-block';
+            li.classList = 'btn btn-primary btn-dark btn-lg btn-block d-block mt-1 bg-secondary';
             li.textContent = city;
             searchHistEl.appendChild(li);
         }
@@ -181,7 +181,7 @@ window.addEventListener('load', function() {
         for (var i = 0; i < distinctCities.length; i++) {
             var city = distinctCities[i];
             var li = document.createElement("li");
-            li.classList = 'btn btn-secondary btn-dark btn-sm btn-block d-block';
+            li.classList = 'btn btn-primary btn-dark btn-lg btn-block d-block mt-1 bg-secondary';
             li.textContent = city;
             searchHistEl.appendChild(li);
         }
