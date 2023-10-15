@@ -33,7 +33,6 @@ var forecastDateEls = document.querySelectorAll('.forecast-date');
 var assignCity = event => {
     event.preventDefault();
     var chosenCity = cityInputEl.value
-    chosenCityEl.textContent = chosenCity;
 
     // Alert user if user input is "falsy" (i.e. null, undefined, false, 0, etc)
     if (!chosenCity) {
@@ -59,6 +58,7 @@ var obtainLonLatValues = chosenCity => {
                 var chosenCityLon = data[0].lon;
                 var chosenCityLat = data[0].lat;
                 var chosenCityCountry = data[0].country;
+                chosenCityEl.textContent = chosenCity;
                 chosenCountryEl.textContent = chosenCityCountry;
                 obtainTodayData(chosenCityLon, chosenCityLat);
                 obtainForecastData(chosenCityLon, chosenCityLat)
@@ -146,7 +146,6 @@ var storeCity = chosenCity => {
     // Obtains unique list in reverse order
     var uniqueStoredCities = storedCities.filter((item, index, array) => array.indexOf(item) === index);
     uniqueStoredCities = uniqueStoredCities.reverse();
-    console.log(uniqueStoredCities);
 
     // Creates a button for each element in storedCities
     if (uniqueStoredCities !== null) {
@@ -159,3 +158,9 @@ var storeCity = chosenCity => {
         }
     }
 }
+
+// For clicked button in search history, display weather (today + forecast)
+searchHistEl.addEventListener('click', function(event) {
+    var clickedCity = event.target.innerHTML;
+    obtainLonLatValues(clickedCity);
+})
