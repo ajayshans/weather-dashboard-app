@@ -153,11 +153,9 @@ var storeCity = chosenCity => {
         for (var i = 0; i < uniqueStoredCities.length; i++) {
             var city = uniqueStoredCities[i];
             var li = document.createElement("li");
-            li.classList = 'btn btn-primary btn-dark btn-lg btn-block';
+            li.classList = 'btn btn-secondary btn-dark btn-sm btn-block d-block';
             li.textContent = city;
             searchHistEl.appendChild(li);
         }
     }
-
-
 }
