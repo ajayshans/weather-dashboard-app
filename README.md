@@ -12,8 +12,7 @@ Tools used are HTML, CSS, JavaScript, Bootstrap CSS and Open Weather Server-side
 - Ensure clicking on city in search history presents current and future weather conditions
 
 ## Webpage Preview
-![Webpage Screenshot 1](images/calendar-schedule-1.png)
-![Webpage Screenshot 2](images/calendar-schedule-2.png)
+![Webpage Screenshot 1](images/weather-application-1.png)
 
 ## Link to Deployed Application
-[Deployed Webpage](https://ajayshans.github.io/calendar-schedule-application/)
+[Deployed Webpage](https://ajayshans.github.io/weather-dashboard-app/)
