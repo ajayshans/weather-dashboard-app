@@ -50,7 +50,7 @@ searchBtnEl.addEventListener('click', assignCity);
 // Obtain longitude and langitude of chosenCity
 var obtainLonLatValues = chosenCity => {
     // Open Weather API URL for geocoding
-    var apiUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + chosenCity + '&limit=1&appid=' + apiKey;
+    var apiUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + chosenCity + '&limit=1&appid=' + apiKey;
     fetch(apiUrl)
     .then(response => {
         if (response.ok) {
@@ -101,7 +101,7 @@ var obtainTodayData = (longitude, latitude) => {
 
 // Display Weather Forecast for relevant Day
 var obtainForecastData = (longitude, latitude) => {
-    var apiDataUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&units=metric' + '&appid=' + apiKey;
+    var apiDataUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&exclude=minutely,hourly,daily,alerts&units=metric' + '&appid=' + apiKey;
     fetch(apiDataUrl)
     .then(response => {
         if (response.ok) {
