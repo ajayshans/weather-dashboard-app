@@ -42,6 +42,7 @@ var assignCity = event => {
     }
 
     obtainLonLatValues(chosenCity);
+    storeCity(chosenCity);
 }
 
 searchBtnEl.addEventListener('click', assignCity);
@@ -80,7 +81,6 @@ var obtainTodayData = (longitude, latitude) => {
         if (response.ok) {
             response.json()
             .then(data => {
-                console.log(data.list);
                 todayTempEl.textContent = data.list[0].main.temp;
                 todayWindEl.textContent = data.list[0].wind.speed;
                 todayHumidityEl.textContent = data.list[0].main.humidity;
@@ -107,7 +107,6 @@ var obtainForecastData = (longitude, latitude) => {
             response.json()
             .then(data => {
                 for (var i = 0; i < forecastDateEls.length; i++){
-                    console.log(data.list[(i+1)*8-1].dt_txt);
                     // Note below i in list[i] needs to be updated to list[i+5 or something]
                     forecastTempEls[i].textContent = data.list[(i+1)*8-1].main.temp;
                     forecastWindEls[i].textContent = data.list[(i+1)*8-1].wind.speed;
@@ -126,3 +125,34 @@ var obtainForecastData = (longitude, latitude) => {
 }
 
 /* ---------------------- Data Storage ---------------------- */
+
+// Store chosenCity input and display storedCities as buttons
+var storeCity = chosenCity => {
+    // Convert storedCities string to JSON object and assign to storedCities variable for processing
+    var storedCities = JSON.parse(localStorage.getItem("storedCities"))
+
+    if (storedCities === null) {
+        storedCities = [chosenCity];
+    } else {
+        storedCities.push(chosenCity);
+    }
+
+    // Update storedCities key in localStorage and store as string
+    localStorage.setItem("storedCities", JSON.stringify(storedCities));
+    
+    // Resets inner HTML within search-history element
+    searchHistEl.innerHTML = '';
+
+    // Creates a button for each element in storedCities
+    if (storedCities !== null) {
+        for (var i = 0; i < storedCities.length; i++) {
+            var city = storedCities[i];
+            var li = document.createElement("li");
+            li.classList = 'btn btn-primary btn-dark btn-lg';
+            li.textContent = city;
+            searchHistEl.appendChild(li);
+        }
+    }
+
+
+}
