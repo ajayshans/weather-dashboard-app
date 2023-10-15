@@ -101,7 +101,7 @@ var obtainTodayData = (longitude, latitude) => {
 
 // Display Weather Forecast for relevant Day
 var obtainForecastData = (longitude, latitude) => {
-    var apiDataUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&exclude=minutely,hourly,daily,alerts&units=metric' + '&appid=' + apiKey;
+    var apiDataUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&units=metric' + '&appid=' + apiKey;
     fetch(apiDataUrl)
     .then(response => {
         if (response.ok) {
