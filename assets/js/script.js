@@ -13,6 +13,11 @@ var clearBtnEl = document.getElementById('clear-button');
 var chosenCityEl = document.getElementById('chosen-city');
 var chosenCountryEl = document.getElementById('chosen-country');
 
+// Today's Weather Variables
+var todayTempEl = document.getElementById('today-temp');
+var todayWindEl = document.getElementById('today-wind');
+var todayHumidityEl = document.getElementById('today-humidity');
+
 
 /* ---------------------- User Input Handling ---------------------- */
 
@@ -20,6 +25,7 @@ var chosenCountryEl = document.getElementById('chosen-country');
 var assignCity = event => {
     event.preventDefault();
     var chosenCity = cityInputEl.value
+    chosenCityEl.textContent = chosenCity;
 
     // Alert user if user input is "falsy" (i.e. null, undefined, false, 0, etc)
     if (!chosenCity) {
@@ -44,6 +50,7 @@ var obtainLonLatValues = chosenCity => {
                 var chosenCityLon = data[0].lon;
                 var chosenCityLat = data[0].lat;
                 var chosenCityCountry = data[0].country;
+                chosenCountryEl.textContent = chosenCityCountry;
                 obtainTodayData(chosenCityLon, chosenCityLat);
             })
         }
@@ -64,7 +71,12 @@ var obtainTodayData = (longitude, latitude) => {
         if (response.ok) {
             response.json()
             .then(data => {
-                console.log(data);
+                console.log(data.list[0]);
+                todayTempEl.textContent = data.list[0].main.temp;
+                todayWindEl.textContent = data.list[0].wind.speed;
+                todayHumidityEl.textContent = data.list[0].main.humidity;
+                var todayIconID = data.list[0].weather[0].icon;
+                // console.log(data)
             })
         }
         else {
@@ -72,6 +84,7 @@ var obtainTodayData = (longitude, latitude) => {
         }
     })
 }
+
 
 
 /* ---------------------- Weather Forecast Handling ---------------------- */
