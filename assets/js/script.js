@@ -143,12 +143,17 @@ var storeCity = chosenCity => {
     // Resets inner HTML within search-history element
     searchHistEl.innerHTML = '';
 
+    // Obtains unique list in reverse order
+    var uniqueStoredCities = storedCities.filter((item, index, array) => array.indexOf(item) === index);
+    uniqueStoredCities = uniqueStoredCities.reverse();
+    console.log(uniqueStoredCities);
+
     // Creates a button for each element in storedCities
-    if (storedCities !== null) {
-        for (var i = 0; i < storedCities.length; i++) {
-            var city = storedCities[i];
+    if (uniqueStoredCities !== null) {
+        for (var i = 0; i < uniqueStoredCities.length; i++) {
+            var city = uniqueStoredCities[i];
             var li = document.createElement("li");
-            li.classList = 'btn btn-primary btn-dark btn-lg';
+            li.classList = 'btn btn-primary btn-dark btn-lg btn-block';
             li.textContent = city;
             searchHistEl.appendChild(li);
         }
