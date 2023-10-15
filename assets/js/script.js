@@ -20,6 +20,8 @@ var todayHumidityEl = document.getElementById('today-humidity');
 var todayIconEl = document.getElementById('today-icon');
 var todayDateEl = document.getElementById('today-date');
 
+// Forecast Weather Variables
+
 /* ---------------------- User Input Handling ---------------------- */
 
 // Assign user input to chosenCity variable
