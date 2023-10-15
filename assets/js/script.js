@@ -17,7 +17,8 @@ var chosenCountryEl = document.getElementById('chosen-country');
 var todayTempEl = document.getElementById('today-temp');
 var todayWindEl = document.getElementById('today-wind');
 var todayHumidityEl = document.getElementById('today-humidity');
-
+var todayIconEl = document.getElementById('today-icon');
+var todayDateEl = document.getElementById('today-date');
 
 /* ---------------------- User Input Handling ---------------------- */
 
@@ -76,6 +77,9 @@ var obtainTodayData = (longitude, latitude) => {
                 todayWindEl.textContent = data.list[0].wind.speed;
                 todayHumidityEl.textContent = data.list[0].main.humidity;
                 var todayIconID = data.list[0].weather[0].icon;
+                var todayIconUrl = 'https://openweathermap.org/img/wn/' + todayIconID + '@2x.png'
+                todayIconEl.setAttribute('src', todayIconUrl);
+                todayDateEl.textContent = dayjs(data.list[0].dt_txt).format('dddd D MMMM, YYYY');
                 // console.log(data)
             })
         }
@@ -85,9 +89,9 @@ var obtainTodayData = (longitude, latitude) => {
     })
 }
 
-
-
 /* ---------------------- Weather Forecast Handling ---------------------- */
+
+
 
 
 /* ---------------------- Data Storage ---------------------- */
