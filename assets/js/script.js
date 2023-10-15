@@ -42,6 +42,7 @@ var assignCity = event => {
 
     obtainLonLatValues(chosenCity);
     storeCity(chosenCity);
+    cityInputEl.value = ''
 }
 
 searchBtnEl.addEventListener('click', assignCity);
@@ -164,3 +165,25 @@ searchHistEl.addEventListener('click', function(event) {
     var clickedCity = event.target.innerHTML;
     obtainLonLatValues(clickedCity);
 })
+
+// When clear button clicked, clear search history
+clearBtnEl.addEventListener('click', function(event) {
+    searchHistEl.innerHTML = '';
+    localStorage.clear();
+})
+
+// Autopopulate with Sydney Weather when page loads
+window.addEventListener('load', function() {
+    obtainLonLatValues('Sydney');
+    var distinctCities = JSON.parse(localStorage.getItem("storedCities")).filter((item, index, array) => array.indexOf(item) === index).reverse();
+    // Creates a button for each element in distinctCities
+    if (distinctCities !== null) {
+        for (var i = 0; i < distinctCities.length; i++) {
+            var city = distinctCities[i];
+            var li = document.createElement("li");
+            li.classList = 'btn btn-secondary btn-dark btn-sm btn-block d-block';
+            li.textContent = city;
+            searchHistEl.appendChild(li);
+        }
+    }
+});
