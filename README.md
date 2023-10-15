@@ -2,7 +2,7 @@
 
 ## Description
 The purpose of this project is to create a weather dashboard application that enables users to see both current weather of a region as well as the forecasted weather for the next 5 days.
-Tools used are HTML, CSS, JavaScript, Bootstrap CSS and Open Weather Server-side API
+Tools used are HTML, CSS, JavaScript, [Bootstrap CSS](https://getbootstrap.com/docs/5.0/getting-started/introduction/) and [OpenWeather Server-side API](https://openweathermap.org/forecast5#geocoding)
 
 ## Requirements
 - Ensure input city is added to search history
