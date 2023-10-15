@@ -21,6 +21,11 @@ var todayIconEl = document.getElementById('today-icon');
 var todayDateEl = document.getElementById('today-date');
 
 // Forecast Weather Variables
+var forecastTempEls = document.querySelectorAll('.forecast-temp');
+var forecastWindEls = document.querySelectorAll('.forecast-wind');
+var forecastHumidityEls = document.querySelectorAll('.forecast-humidity');
+var forecastIconEls = document.querySelectorAll('.forecast-icon');
+var forecastDateEls = document.querySelectorAll('.forecast-date');
 
 /* ---------------------- User Input Handling ---------------------- */
 
@@ -55,6 +60,7 @@ var obtainLonLatValues = chosenCity => {
                 var chosenCityCountry = data[0].country;
                 chosenCountryEl.textContent = chosenCityCountry;
                 obtainTodayData(chosenCityLon, chosenCityLat);
+                obtainForecastData(chosenCityLon, chosenCityLat)
             })
         }
         else {
@@ -74,7 +80,7 @@ var obtainTodayData = (longitude, latitude) => {
         if (response.ok) {
             response.json()
             .then(data => {
-                console.log(data.list[0]);
+                console.log(data.list);
                 todayTempEl.textContent = data.list[0].main.temp;
                 todayWindEl.textContent = data.list[0].wind.speed;
                 todayHumidityEl.textContent = data.list[0].main.humidity;
@@ -82,7 +88,6 @@ var obtainTodayData = (longitude, latitude) => {
                 var todayIconUrl = 'https://openweathermap.org/img/wn/' + todayIconID + '@2x.png'
                 todayIconEl.setAttribute('src', todayIconUrl);
                 todayDateEl.textContent = dayjs(data.list[0].dt_txt).format('dddd D MMMM, YYYY');
-                // console.log(data)
             })
         }
         else {
@@ -93,7 +98,31 @@ var obtainTodayData = (longitude, latitude) => {
 
 /* ---------------------- Weather Forecast Handling ---------------------- */
 
-
-
+// Display Weather Forecast for relevant Day
+var obtainForecastData = (longitude, latitude) => {
+    var apiDataUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&exclude=minutely,hourly,daily,alerts&units=metric' + '&appid=' + apiKey;
+    fetch(apiDataUrl)
+    .then(response => {
+        if (response.ok) {
+            response.json()
+            .then(data => {
+                for (var i = 0; i < forecastDateEls.length; i++){
+                    console.log(data.list[(i+1)*8-1].dt_txt);
+                    // Note below i in list[i] needs to be updated to list[i+5 or something]
+                    forecastTempEls[i].textContent = data.list[(i+1)*8-1].main.temp;
+                    forecastWindEls[i].textContent = data.list[(i+1)*8-1].wind.speed;
+                    forecastHumidityEls[i].textContent = data.list[(i+1)*8-1].main.humidity;
+                    var forecastIconID = data.list[(i+1)*8-1].weather[0].icon;
+                    var forecastIconUrl = 'https://openweathermap.org/img/wn/' + forecastIconID + '@2x.png'
+                    forecastIconEls[i].setAttribute('src', forecastIconUrl);
+                    forecastDateEls[i].textContent = dayjs(data.list[(i+1)*8-1].dt_txt).format('dddd D MMMM, YYYY');
+                }
+            })
+        }
+        else {
+            alert('Error ' + response.status + ': ' + response.statusText);
+        }
+    })
+}
 
 /* ---------------------- Data Storage ---------------------- */
